@@ -1,19 +1,45 @@
 import en from './en.json';
-import zhTW from './zh-TW.json';
 import zhCN from './zh-CN.json';
+import zhTW from './zh-TW.json';
+import es from './es.json';
+import fr from './fr.json';
+import de from './de.json';
+import ja from './ja.json';
+import ko from './ko.json';
+import vi from './vi.json';
+import it from './it.json';
+import pt from './pt.json';
 
 const translations: Record<string, any> = {
-  en,
+  'en': en,
+  'zh-CN': zhCN,
   'zh-TW': zhTW,
-  'zh-CN': zhCN
+  'es': es,
+  'fr': fr,
+  'de': de,
+  'ja': ja,
+  'ko': ko,
+  'vi': vi,
+  'it': it,
+  'pt': pt
 };
 
 export const defaultLocale = 'en';
-export const locales = ['en', 'zh-CN', 'zh-TW'] as const;
+export const locales = ['en', 'zh-CN', 'zh-TW', 'es', 'fr', 'de', 'ja', 'ko', 'vi', 'it', 'pt'] as const;
+export type Locale = typeof locales[number];
+
 export const localeNames: Record<string, string> = {
   'en': 'English',
   'zh-CN': '简体中文',
-  'zh-TW': '繁體中文'
+  'zh-TW': '繁體中文',
+  'es': 'Español',
+  'fr': 'Français',
+  'de': 'Deutsch',
+  'ja': '日本語',
+  'ko': '한국어',
+  'vi': 'Tiếng Việt',
+  'it': 'Italiano',
+  'pt': 'Português'
 };
 
 export function getLocaleFromUrl(url: URL): string {

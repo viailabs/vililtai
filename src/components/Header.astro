@@ -3,7 +3,8 @@ import { getLocaleFromUrl, t, locales, localeNames, getLocalePath } from '../i18
 
 const locale = getLocaleFromUrl(Astro.url);
 const i = t(locale);
-const currentPath = Astro.url.pathname.replace(/^\/(zh-TW|zh-CN)(\/|$)/, '/');
+const nonDefaultLocales = locales.filter(l => l !== 'en');
+const currentPath = Astro.url.pathname.replace(new RegExp(`^/(${nonDefaultLocales.join('|')})(/|$)`), '/');
 ---
 
 <header class="sticky top-0 z-50 bg-[#070A12]/80 backdrop-blur-xl border-b border-white/5">
