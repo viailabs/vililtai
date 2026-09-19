@@ -1,0 +1,428 @@
+---
+import { getLocaleFromUrl, t, getLocalePath } from '../i18n/utils';
+
+const locale = getLocaleFromUrl(Astro.url);
+const i = t(locale);
+---
+
+<div class="relative bg-[#070A12] text-white overflow-hidden">
+  <!-- Background Ambient Glows (Acoustic Violet #8B55FA, Melodic Rose #FA5994, Cyan #1FD1F3) -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[500px] rounded-full bg-[#8B55FA]/15 blur-[140px]"></div>
+    <div class="absolute top-[35%] -left-40 w-[600px] h-[500px] rounded-full bg-[#FA5994]/10 blur-[150px]"></div>
+    <div class="absolute top-[60%] -right-40 w-[600px] h-[500px] rounded-full bg-[#1FD1F3]/12 blur-[150px]"></div>
+    <div class="absolute -bottom-20 left-1/3 w-[500px] h-[400px] rounded-full bg-[#8B55FA]/10 blur-[140px]"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-16 pb-20 px-6 sm:px-12 max-w-6xl mx-auto flex flex-col items-center text-center">
+    
+    <!-- Top Badge -->
+    <div class="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md shadow-sm">
+      <span class="flex h-2.5 w-2.5 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8B55FA] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#8B55FA]"></span>
+      </span>
+      <span class="text-xs font-semibold text-[#C4B5FD] tracking-wider uppercase">{i.hero.badge}</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight max-w-4xl">
+      {i.hero.title_line1}<br />
+      <span class="lilt-gradient-text">{i.hero.title_line2}</span>
+    </h1>
+
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-10 font-light leading-relaxed">
+      <strong class="font-semibold text-white">{i.hero.desc_bold}</strong> {i.hero.desc}
+    </p>
+
+    <!-- Primary CTA Buttons -->
+    <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-16">
+      <a href="#download" class="w-full sm:w-auto px-7 py-4 bg-gradient-to-r from-[#8B55FA] to-[#1FD1F3] hover:opacity-90 text-white font-bold rounded-2xl transition-all shadow-[0_0_40px_-5px_rgba(139,85,250,0.5)] hover:scale-105 flex items-center justify-center gap-3">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        {i.hero.cta_testflight}
+      </a>
+      <a href="#personas" class="w-full sm:w-auto px-7 py-4 bg-[#0E1322] hover:bg-[#151C30] text-white font-semibold rounded-2xl border border-white/10 transition-colors backdrop-blur-md flex items-center justify-center gap-2.5">
+        <svg class="w-5 h-5 text-[#C4B5FD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        {i.hero.cta_personas}
+      </a>
+    </div>
+
+    <!-- Hero Interactive Hands-Free Voice Orb Cockpit Preview -->
+    <div class="w-full max-w-4xl bg-[#0E1322]/90 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] text-left relative overflow-hidden">
+      
+      <!-- Top Window Header -->
+      <div class="flex items-center justify-between pb-6 border-b border-white/5 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          <span class="ml-2 text-xs font-mono text-gray-400">{i.orb_preview.bar_title}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#8B55FA]/20 text-[#C4B5FD] border border-[#8B55FA]/30">
+            {i.orb_preview.engine_status}
+          </span>
+        </div>
+      </div>
+
+      <!-- Simulated Voice Orb Interface -->
+      <div class="flex flex-col md:flex-row items-center gap-8 py-4">
+        
+        <!-- Interactive Glowing Breathing Orb Representation -->
+        <div class="relative flex flex-col items-center justify-center p-6">
+          <div class="relative w-44 h-44 flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#8B55FA] via-[#FA5994] to-[#1FD1F3] blur-2xl opacity-40 animate-pulse"></div>
+            <div class="relative w-36 h-36 rounded-full bg-gradient-to-tr from-[#8B55FA] via-[#FA5994] to-[#1FD1F3] p-1 shadow-[0_0_50px_rgba(139,85,250,0.6)] flex items-center justify-center">
+              <div class="w-full h-full rounded-full bg-[#0E1322]/80 backdrop-blur-md flex flex-col items-center justify-center gap-2">
+                <svg class="w-10 h-10 text-[#C4B5FD]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                <!-- 9-bar animated waveform -->
+                <div class="flex items-center gap-1 h-5">
+                  <div class="w-1 bg-[#1FD1F3] h-2 rounded-full animate-bounce"></div>
+                  <div class="w-1 bg-[#C4B5FD] h-4 rounded-full animate-bounce [animation-delay:100ms]"></div>
+                  <div class="w-1 bg-[#FA5994] h-5 rounded-full animate-bounce [animation-delay:200ms]"></div>
+                  <div class="w-1 bg-[#8B55FA] h-3 rounded-full animate-bounce [animation-delay:300ms]"></div>
+                  <div class="w-1 bg-[#1FD1F3] h-5 rounded-full animate-bounce [animation-delay:150ms]"></div>
+                  <div class="w-1 bg-[#FA5994] h-3 rounded-full animate-bounce [animation-delay:250ms]"></div>
+                  <div class="w-1 bg-[#C4B5FD] h-2 rounded-full animate-bounce [animation-delay:350ms]"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono font-semibold text-gray-400 mt-3 tracking-wider">{i.orb_preview.orb_state}</span>
+        </div>
+
+        <!-- Live Conversational Turn Simulation -->
+        <div class="flex-1 space-y-4 text-left">
+          
+          <!-- User Utterance -->
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+            <span class="text-[11px] font-bold text-[#1FD1F3] uppercase tracking-wider block mb-1">User</span>
+            <p class="text-sm text-gray-200 leading-relaxed font-light">{i.orb_preview.user_speaking}</p>
+          </div>
+
+          <!-- Assistant Voice Response -->
+          <div class="bg-[#8B55FA]/10 border border-[#8B55FA]/30 rounded-2xl p-4 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold text-[#C4B5FD] uppercase tracking-wider">viLilt · Empathetic Friend</span>
+              <span class="text-[10px] text-gray-400 font-mono">0.5B Ultra-Fast (12ms)</span>
+            </div>
+            <p class="text-sm text-gray-100 leading-relaxed font-light">{i.orb_preview.assistant_reply}</p>
+            <div class="pt-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B55FA]/20 text-[#C4B5FD] text-xs font-medium border border-[#8B55FA]/30">
+                {i.orb_preview.voice_pill}
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 5 Companion Personas Grid -->
+  <section id="personas" class="relative z-10 py-24 px-6 sm:px-12 max-w-6xl mx-auto border-t border-white/5">
+    <div class="text-center mb-16">
+      <span class="px-3.5 py-1 text-xs font-semibold text-[#FA5994] bg-[#FA5994]/10 border border-[#FA5994]/20 rounded-full uppercase tracking-wider">{i.personas.badge}</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold mt-4 mb-4 tracking-tight">{i.personas.title}</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-base">{i.personas.subtitle}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Persona 1: Empathetic Friend -->
+      <div class="bg-[#0E1322] border border-[#FA5994]/30 p-8 rounded-3xl backdrop-blur-sm hover:border-[#FA5994]/60 transition-all group relative overflow-hidden shadow-[0_0_30px_rgba(250,89,148,0.1)]">
+        <div class="w-12 h-12 bg-[#FA5994]/20 rounded-2xl flex items-center justify-center mb-6 text-[#FA5994]">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xl font-bold text-white group-hover:text-[#FA5994] transition-colors">{i.personas.p1_name}</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#FA5994] bg-[#FA5994]/10 px-2 py-0.5 rounded-full">{i.personas.p1_role}</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.personas.p1_desc}</p>
+      </div>
+
+      <!-- Persona 2: Intellectual Mentor -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-[#8B55FA]/50 transition-all group">
+        <div class="w-12 h-12 bg-[#8B55FA]/20 rounded-2xl flex items-center justify-center mb-6 text-[#C4B5FD]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        </div>
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xl font-bold text-white group-hover:text-[#C4B5FD] transition-colors">{i.personas.p2_name}</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#C4B5FD] bg-[#8B55FA]/15 px-2 py-0.5 rounded-full">{i.personas.p2_role}</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.personas.p2_desc}</p>
+      </div>
+
+      <!-- Persona 3: Language Practice Partner -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-[#1FD1F3]/50 transition-all group">
+        <div class="w-12 h-12 bg-[#1FD1F3]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1FD1F3]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+        </div>
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xl font-bold text-white group-hover:text-[#1FD1F3] transition-colors">{i.personas.p3_name}</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#1FD1F3] bg-[#1FD1F3]/15 px-2 py-0.5 rounded-full">{i.personas.p3_role}</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.personas.p3_desc}</p>
+      </div>
+
+      <!-- Persona 4: Creative Spark -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-[#8B55FA]/50 transition-all group">
+        <div class="w-12 h-12 bg-[#8B55FA]/20 rounded-2xl flex items-center justify-center mb-6 text-[#C4B5FD]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        </div>
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xl font-bold text-white group-hover:text-[#C4B5FD] transition-colors">{i.personas.p4_name}</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#C4B5FD] bg-[#8B55FA]/15 px-2 py-0.5 rounded-full">{i.personas.p4_role}</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.personas.p4_desc}</p>
+      </div>
+
+      <!-- Persona 5: Zen & Mindfulness -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-[#1FD1F3]/50 transition-all group md:col-span-2 lg:col-span-2">
+        <div class="w-12 h-12 bg-[#1FD1F3]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1FD1F3]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </div>
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="text-xl font-bold text-white group-hover:text-[#1FD1F3] transition-colors">{i.personas.p5_name}</h3>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#1FD1F3] bg-[#1FD1F3]/15 px-2 py-0.5 rounded-full">{i.personas.p5_role}</span>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.personas.p5_desc}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Model Benchmark Section -->
+  <section id="models" class="relative z-10 py-20 px-6 sm:px-12 max-w-6xl mx-auto border-t border-white/5">
+    <div class="text-center mb-16">
+      <span class="px-3.5 py-1 text-xs font-semibold text-[#1FD1F3] bg-[#1FD1F3]/10 border border-[#1FD1F3]/20 rounded-full uppercase tracking-wider">{i.models.badge}</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold mt-4 mb-4 tracking-tight">{i.models.title}</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-base">{i.models.desc}</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Model 1: Qwen 2.5 0.5B -->
+      <div class="bg-[#0E1322] border border-white/10 p-6 rounded-3xl hover:border-[#8B55FA]/50 transition-all group flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-[#C4B5FD] uppercase tracking-wider bg-[#8B55FA]/15 px-2.5 py-1 rounded-full border border-[#8B55FA]/30">{i.models.m1_tier}</span>
+            <span class="text-xs text-gray-500 font-mono">{i.models.m1_size}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#C4B5FD] transition-colors">{i.models.m1_name}</h3>
+          <p class="text-gray-400 text-xs leading-relaxed mb-4">{i.models.m1_desc}</p>
+        </div>
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
+          <span>{i.models.m1_speed}</span>
+          <span class="text-[#1FD1F3]">{i.models.m1_compat}</span>
+        </div>
+      </div>
+
+      <!-- Model 2: Qwen 2.5 1.5B -->
+      <div class="bg-[#0E1322] border border-[#FA5994]/40 p-6 rounded-3xl hover:border-[#FA5994] transition-all group flex flex-col justify-between relative shadow-[0_0_30px_rgba(250,89,148,0.15)]">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-[#FA5994] uppercase tracking-wider bg-[#FA5994]/15 px-2.5 py-1 rounded-full border border-[#FA5994]/30">{i.models.m2_tier}</span>
+            <span class="text-xs text-gray-500 font-mono">{i.models.m2_size}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#FA5994] transition-colors">{i.models.m2_name}</h3>
+          <p class="text-gray-400 text-xs leading-relaxed mb-4">{i.models.m2_desc}</p>
+        </div>
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
+          <span>{i.models.m2_speed}</span>
+          <span class="text-[#1FD1F3]">{i.models.m2_compat}</span>
+        </div>
+      </div>
+
+      <!-- Model 3: Llama 3.2 1B -->
+      <div class="bg-[#0E1322] border border-white/10 p-6 rounded-3xl hover:border-[#8B55FA]/50 transition-all group flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-[#C4B5FD] uppercase tracking-wider bg-[#8B55FA]/15 px-2.5 py-1 rounded-full border border-[#8B55FA]/30">{i.models.m3_tier}</span>
+            <span class="text-xs text-gray-500 font-mono">{i.models.m3_size}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#C4B5FD] transition-colors">{i.models.m3_name}</h3>
+          <p class="text-gray-400 text-xs leading-relaxed mb-4">{i.models.m3_desc}</p>
+        </div>
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
+          <span>{i.models.m3_speed}</span>
+          <span class="text-[#1FD1F3]">{i.models.m3_compat}</span>
+        </div>
+      </div>
+
+      <!-- Model 4: Qwen 2.5 3B -->
+      <div class="bg-[#0E1322] border border-white/10 p-6 rounded-3xl hover:border-[#8B55FA]/50 transition-all group flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-[#C4B5FD] uppercase tracking-wider bg-[#8B55FA]/15 px-2.5 py-1 rounded-full border border-[#8B55FA]/30">{i.models.m4_tier}</span>
+            <span class="text-xs text-gray-500 font-mono">{i.models.m4_size}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#C4B5FD] transition-colors">{i.models.m4_name}</h3>
+          <p class="text-gray-400 text-xs leading-relaxed mb-4">{i.models.m4_desc}</p>
+        </div>
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
+          <span>{i.models.m4_speed}</span>
+          <span class="text-[#1FD1F3]">{i.models.m4_compat}</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="relative z-10 py-24 px-6 sm:px-12 max-w-6xl mx-auto border-t border-white/5">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">{i.features.title}</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-base">{i.features.subtitle}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Feature 1: Ambient Breathing Orb -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-white/15 transition-all">
+        <div class="w-12 h-12 bg-[#8B55FA]/20 rounded-2xl flex items-center justify-center mb-6 text-[#C4B5FD]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">{i.features.f1_title}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.features.f1_desc}</p>
+      </div>
+
+      <!-- Feature 2: Interactive Text Chat -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-white/15 transition-all">
+        <div class="w-12 h-12 bg-[#1FD1F3]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1FD1F3]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">{i.features.f2_title}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.features.f2_desc}</p>
+      </div>
+
+      <!-- Feature 3: Multi-Lingual Neural TTS -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-white/15 transition-all">
+        <div class="w-12 h-12 bg-[#FA5994]/20 rounded-2xl flex items-center justify-center mb-6 text-[#FA5994]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">{i.features.f3_title}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.features.f3_desc}</p>
+      </div>
+
+      <!-- Feature 4: 100% On-Device Privacy -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-white/15 transition-all">
+        <div class="w-12 h-12 bg-[#8B55FA]/20 rounded-2xl flex items-center justify-center mb-6 text-[#C4B5FD]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">{i.features.f4_title}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.features.f4_desc}</p>
+      </div>
+
+      <!-- Feature 5: Zero-Cost Community Access -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-white/15 transition-all">
+        <div class="w-12 h-12 bg-[#1FD1F3]/20 rounded-2xl flex items-center justify-center mb-6 text-[#1FD1F3]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">{i.features.f5_title}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.features.f5_desc}</p>
+      </div>
+
+      <!-- Feature 6: Companion to viLoom -->
+      <div class="bg-[#0E1322] border border-white/5 p-8 rounded-3xl backdrop-blur-sm hover:border-white/15 transition-all">
+        <div class="w-12 h-12 bg-[#FA5994]/20 rounded-2xl flex items-center justify-center mb-6 text-[#FA5994]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">{i.features.f6_title}</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">{i.features.f6_desc}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2-Tier Architecture Section -->
+  <section id="tiers" class="relative z-10 py-24 px-6 sm:px-12 max-w-5xl mx-auto border-t border-white/5">
+    <div class="text-center mb-16">
+      <span class="px-3.5 py-1 text-xs font-semibold text-[#8B55FA] bg-[#8B55FA]/10 border border-[#8B55FA]/30 rounded-full uppercase tracking-wider">{i.tiers.badge}</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold mt-4 mb-4 tracking-tight">{i.tiers.title}</h2>
+      <p class="text-gray-400 max-w-xl mx-auto text-base">{i.tiers.subtitle}</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Tier 1: viLilt -->
+      <div class="bg-[#0E1322] border border-white/10 p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <img src="/vililt-logo.png" alt="viLilt" class="w-12 h-12 rounded-2xl shadow-md" />
+            <div>
+              <h3 class="text-2xl font-bold text-white">{i.tiers.t1_name}</h3>
+              <span class="text-xs text-[#1FD1F3] font-mono">{i.tiers.t1_bundle}</span>
+            </div>
+          </div>
+          <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#1FD1F3]/15 text-[#1FD1F3] border border-[#1FD1F3]/30 mb-4">{i.tiers.t1_badge}</span>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">{i.tiers.t1_desc}</p>
+        </div>
+        <a href="#download" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-center text-xs transition-colors">
+          viaiforgood.org (Nonprofit)
+        </a>
+      </div>
+
+      <!-- Tier 2: viLilt Pro -->
+      <div class="bg-[#0E1322] border border-[#8B55FA]/40 p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between shadow-[0_0_30px_rgba(139,85,250,0.15)]">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <img src="/vililt-pro-logo.png" alt="viLilt Pro" class="w-12 h-12 rounded-2xl shadow-md" />
+            <div>
+              <h3 class="text-2xl font-bold text-white">{i.tiers.t2_name}</h3>
+              <span class="text-xs text-[#C4B5FD] font-mono">{i.tiers.t2_bundle}</span>
+            </div>
+          </div>
+          <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-[#8B55FA]/15 text-[#C4B5FD] border border-[#8B55FA]/30 mb-4">{i.tiers.t2_badge}</span>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">{i.tiers.t2_desc}</p>
+        </div>
+        <a href="#download" class="w-full py-3 rounded-xl bg-gradient-to-r from-[#8B55FA] to-[#1FD1F3] text-white font-bold text-center text-xs transition-all shadow-md">
+          VI AI INC (Commercial)
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Download & TestFlight CTA Section -->
+  <section id="download" class="relative z-10 py-24 px-6 sm:px-12 max-w-4xl mx-auto text-center border-t border-white/5">
+    <div class="w-20 h-20 mx-auto mb-8 rounded-3xl bg-[#8B55FA]/15 border border-[#8B55FA]/40 p-3 shadow-[0_0_50px_rgba(139,85,250,0.4)]">
+      <img src="/vililt-logo.png" alt="viLilt Logo" class="w-full h-full rounded-2xl" />
+    </div>
+
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">{i.cta.title}</h2>
+    <p class="text-gray-300 mb-10 text-lg font-light max-w-2xl mx-auto leading-relaxed">
+      {i.cta.desc}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center gap-4 justify-center">
+      <a href="https://testflight.apple.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#8B55FA] to-[#1FD1F3] hover:opacity-90 text-white font-bold rounded-2xl transition-all shadow-[0_0_35px_rgba(139,85,250,0.5)] hover:scale-105 flex items-center justify-center gap-3">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        {i.cta.join_btn}
+      </a>
+      <a href="https://github.com/viailabs/vililt" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-2xl border border-white/10 transition-colors backdrop-blur-md flex items-center justify-center gap-2">
+        {i.cta.github_btn}
+      </a>
+    </div>
+
+    <div class="mt-16 flex justify-center items-center gap-8 text-gray-500 text-xs">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#1FD1F3]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>{i.cta.compat_ios}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#1FD1F3]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>{i.cta.compat_ipados}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#1FD1F3]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>{i.cta.compat_mac}</span>
+      </div>
+    </div>
+  </section>
+
+</div>
